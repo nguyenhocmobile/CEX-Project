@@ -7,7 +7,7 @@ class ButtonMainHandle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return FlatButton(
+    return TextButton(
       onPressed: () {},
       child: Column(
         children: [
@@ -15,7 +15,7 @@ class ButtonMainHandle extends StatelessWidget {
             icon,
             color: Colors.blue,
           ),
-          SizedBox(
+          const SizedBox(
             height: 7,
           ),
           Text(title),

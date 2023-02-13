@@ -7,7 +7,7 @@ class WalletBoard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(
+      margin: const EdgeInsets.only(
         top: 5,
         left: 20,
         right: 20,
@@ -18,7 +18,7 @@ class WalletBoard extends StatelessWidget {
           ClipRRect(
             borderRadius: BorderRadius.circular(10),
             child: Container(
-              padding: EdgeInsets.only(
+              padding: const EdgeInsets.only(
                 left: 15,
                 top: 15,
                 right: 15,
@@ -27,7 +27,7 @@ class WalletBoard extends StatelessWidget {
               child: Column(
                 children: [
                   Container(
-                    margin: EdgeInsets.only(bottom: 15),
+                    margin: const EdgeInsets.only(bottom: 15),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -40,7 +40,7 @@ class WalletBoard extends StatelessWidget {
                                   color: Theme.of(context).accentColor,
                                   fontSize: 15),
                             ),
-                            SizedBox(
+                            const SizedBox(
                               height: 20,
                             ),
                             Text(
@@ -51,7 +51,7 @@ class WalletBoard extends StatelessWidget {
                                 fontWeight: FontWeight.w500,
                               ),
                             ),
-                            SizedBox(
+                            const SizedBox(
                               height: 10,
                             ),
                             Text(
@@ -65,10 +65,10 @@ class WalletBoard extends StatelessWidget {
                         ClipRRect(
                           borderRadius: BorderRadius.circular(5),
                           child: Container(
-                            padding: EdgeInsets.only(right: 7),
-                            color: Color.fromRGBO(223, 241, 255, 1),
+                            padding: const EdgeInsets.only(right: 7),
+                            color: const Color.fromRGBO(223, 241, 255, 1),
                             child: Row(
-                              children: [
+                              children: const [
                                 Icon(
                                   Icons.arrow_drop_up,
                                   color: Color.fromRGBO(4, 156, 107, 1),
@@ -88,12 +88,13 @@ class WalletBoard extends StatelessWidget {
                     ),
                   ),
                   ClipRRect(
-                    borderRadius: BorderRadius.only(
+                    borderRadius: const BorderRadius.only(
                       topLeft: Radius.circular(10),
                       topRight: Radius.circular(10),
                     ),
                     child: Container(
-                      padding: EdgeInsets.only(top: 15, left: 10, right: 10),
+                      padding:
+                          const EdgeInsets.only(top: 15, left: 10, right: 10),
                       color: Colors.white,
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,

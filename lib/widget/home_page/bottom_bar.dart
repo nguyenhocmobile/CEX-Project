@@ -31,19 +31,6 @@ class BottomBar extends StatelessWidget {
               icon: SizedBox(),
               label: '',
             ),
-            // BottomNavigationBarItem(
-            //   icon: CircleAvatar(
-            //     backgroundColor: Colors.red,
-            //     child: CircleAvatar(
-            //       backgroundColor: Colors.black,
-            //       child: Icon(
-            //         Icons.currency_exchange,
-            //         color: Colors.white,
-            //       ),
-            //     ),
-            //   ),
-            //   label: '',
-            // ),
             BottomNavigationBarItem(
               icon: Icon(Icons.workspace_premium_outlined),
               label: 'Futures',
@@ -55,15 +42,15 @@ class BottomBar extends StatelessWidget {
           ],
         ),
         Positioned(
-          left: MediaQuery.of(context).size.width / 2 - 50,
+          left: MediaQuery.of(context).size.width / 2 - 47,
           bottom: 10,
           child: ElevatedButton(
             onPressed: () {},
             style: ElevatedButton.styleFrom(
-              shape: CircleBorder(),
+              shape: const CircleBorder(),
             ),
             // padding: EdgeInsets.all(0),
-            child: CircleAvatar(
+            child: const CircleAvatar(
               maxRadius: 30,
               backgroundColor: Colors.white,
               child: CircleAvatar(
