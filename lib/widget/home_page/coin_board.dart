@@ -1,6 +1,4 @@
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutter/material.dart';
 import 'dart:async';
 import 'dart:convert';
 
@@ -15,6 +13,7 @@ class CoinBoard extends StatefulWidget {
 }
 
 class _CoinBoard extends State<CoinBoard> {
+  List<Coin> coins = [];
   Future<List<Coin>> fetchCoin() async {
     coinList = [];
     final response = await http.get(Uri.parse(
@@ -30,9 +29,6 @@ class _CoinBoard extends State<CoinBoard> {
             coinList.add(Coin.fromJson(map));
           }
         }
-        setState(() {
-          coinList;
-        });
       }
       return coinList;
     } else {
@@ -40,28 +36,38 @@ class _CoinBoard extends State<CoinBoard> {
     }
   }
 
+  void refreshCoin() {
+    fetchCoin().then((coinList) {
+      setState(() {
+        coins = coinList;
+      });
+    });
+  }
+
   @override
   void initState() {
-    fetchCoin();
-    Timer.periodic(Duration(seconds: 10), (timer) => fetchCoin());
+    refreshCoin();
+    Timer.periodic(
+      const Duration(seconds: 5),
+      (timer) => refreshCoin(),
+    );
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: ListView.builder(
-        itemBuilder: (context, index) {
-          return CoinCard(
-            name: coinList[index].name,
-            symbol: coinList[index].symbol,
-            imageUrl: coinList[index].imageUrl,
-            price: coinList[index].price.toDouble(),
-            change: coinList[index].change.toDouble(),
-            changePercentage: coinList[index].changePercentage.toDouble(),
-          );
-        },
-      ),
+    return ListView.builder(
+      itemBuilder: (context, index) {
+        return CoinCard(
+          name: coins[index].name,
+          symbol: coins[index].symbol,
+          imageUrl: coins[index].imageUrl,
+          price: coins[index].price.toDouble(),
+          change: coins[index].change.toDouble(),
+          changePercentage: coins[index].changePercentage.toDouble(),
+        );
+      },
+      itemCount: coins.length,
     );
   }
 }

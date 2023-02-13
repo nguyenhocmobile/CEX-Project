@@ -15,7 +15,7 @@ class ButtonMainHandle extends StatelessWidget {
             icon,
             color: Colors.blue,
           ),
-          SizedBox(
+          const SizedBox(
             height: 7,
           ),
           Text(title),

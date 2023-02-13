@@ -1,5 +1,4 @@
-import 'package:cex/widget/home_page/my_portfolios.dart';
-
+import 'package:cex/widget/home_page/coin_board.dart';
 import '../widget/home_page/bottom_bar.dart';
 import 'package:flutter/material.dart';
 import '../widget/home_page/wallet_board.dart';
@@ -13,7 +12,7 @@ class Home extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.white,
         elevation: 0,
-        toolbarHeight: 100,
+        toolbarHeight: 70,
         shadowColor: Colors.white,
         title: ListTile(
           contentPadding: const EdgeInsets.only(
@@ -65,17 +64,23 @@ class Home extends StatelessWidget {
                   'My Portfolios',
                   style: Theme.of(context).textTheme.headline3,
                 ),
-                const Text(
-                  'Sell all',
-                  style: TextStyle(
-                      color: Color.fromRGBO(21, 115, 254, 1),
-                      fontSize: 15,
-                      fontWeight: FontWeight.w600),
+                TextButton(
+                  onPressed: () {},
+                  child: const Text(
+                    'Sell all',
+                    style: TextStyle(
+                        color: Color.fromRGBO(21, 115, 254, 1),
+                        fontSize: 15,
+                        fontWeight: FontWeight.w600),
+                  ),
                 )
               ],
             ),
           ),
-          MyPortfolios(),
+          Expanded(
+            // child: MyPortfolios(),
+            child: CoinBoard(),
+          ),
         ],
       ),
       bottomNavigationBar: const BottomBar(),
